@@ -11,6 +11,15 @@ const show = id => {
   if (target) target.classList.add('active');
 };
 
+const showLoading = (duration, callback) => {
+  const loading = $('loading');
+  if (loading) loading.classList.add('active');
+  setTimeout(() => {
+    if (loading) loading.classList.remove('active');
+    callback();
+  }, duration);
+};
+
 let pwdVisible = false;
 const togglePwd = $('toggle-pwd');
 if (togglePwd) togglePwd.addEventListener('click', () => {
@@ -28,16 +37,13 @@ if (btnLogin) btnLogin.addEventListener('click', () => {
   if (msg) msg.textContent = '';
 
   if (USERS[username] && USERS[username] === password) {
-    const loading = $('loading');
-    if (loading) loading.classList.add('active');
-    setTimeout(() => {
+    showLoading(5000, () => {
       const userName = $('user-name');
       if (userName) userName.textContent = username;
       const welcomeName = $('welcome-name');
       if (welcomeName) welcomeName.textContent = username;
       show('dashboard');
-      if (loading) loading.classList.remove('active');
-    }, 5000); // 5 seconds for login
+    });
   } else {
     if (msg) msg.textContent = 'Incorrect User ID or Password';
   }
@@ -45,254 +51,81 @@ if (btnLogin) btnLogin.addEventListener('click', () => {
 
 const btnLogout = $('btn-logout');
 if (btnLogout) btnLogout.addEventListener('click', () => {
-  show('login');
-  const loginUsername = $('login-username');
-  if (loginUsername) loginUsername.value = '';
-  const loginPassword = $('login-password');
-  if (loginPassword) loginPassword.value = '';
+  showLoading(3000, () => {
+    show('login');
+    const loginUsername = $('login-username');
+    if (loginUsername) loginUsername.value = '';
+    const loginPassword = $('login-password');
+    if (loginPassword) loginPassword.value = '';
+  });
 });
 
 // Menu Tap
 const menuTap = $('menu-tap');
-if (menuTap) menuTap.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('menu-screen');
-    if (loading) loading.classList.remove('active');
-  }, 3000); // 3 seconds
-});
+if (menuTap) menuTap.addEventListener('click', () => showLoading(3000, () => show('menu-screen')));
 
 // Menu Items
 const menuAccounts = $('menu-accounts');
-if (menuAccounts) menuAccounts.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('dashboard');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (menuAccounts) menuAccounts.addEventListener('click', () => showLoading(3000, () => show('dashboard')));
 const menuTransfer = $('menu-transfer');
-if (menuTransfer) menuTransfer.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('transfer');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (menuTransfer) menuTransfer.addEventListener('click', () => showLoading(3000, () => show('transfer')));
 const menuZelle = $('menu-zelle');
-if (menuZelle) menuZelle.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('zelle');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (menuZelle) menuZelle.addEventListener('click', () => showLoading(3000, () => show('zelle')));
 const menuBill = $('menu-bill');
-if (menuBill) menuBill.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('bills');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (menuBill) menuBill.addEventListener('click', () => showLoading(3000, () => show('bills')));
 const menuDeposit = $('menu-deposit');
-if (menuDeposit) menuDeposit.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('deposit');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (menuDeposit) menuDeposit.addEventListener('click', () => showLoading(3000, () => show('deposit')));
 const menuInvest = $('menu-invest');
-if (menuInvest) menuInvest.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('invest');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (menuInvest) menuInvest.addEventListener('click', () => showLoading(3000, () => show('invest')));
 
 // Back from Menu
 const backMenu = $('back-menu');
-if (backMenu) backMenu.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('dashboard');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (backMenu) backMenu.addEventListener('click', () => showLoading(3000, () => show('dashboard')));
 
 // Inbox Tap
 const inboxTap = $('inbox-tap');
-if (inboxTap) inboxTap.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('inbox');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (inboxTap) inboxTap.addEventListener('click', () => showLoading(3000, () => show('inbox')));
 
 // Back from Inbox
 const backInbox = $('back-inbox');
-if (backInbox) backInbox.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('dashboard');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (backInbox) backInbox.addEventListener('click', () => showLoading(3000, () => show('dashboard')));
 
 // Bottom Nav
 const navTransfer = $('nav-transfer');
-if (navTransfer) navTransfer.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('transfer');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (navTransfer) navTransfer.addEventListener('click', () => showLoading(3000, () => show('transfer')));
 const navBill = $('nav-bill');
-if (navBill) navBill.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('bills');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (navBill) navBill.addEventListener('click', () => showLoading(3000, () => show('bills')));
 const navDeposit = $('nav-deposit');
-if (navDeposit) navDeposit.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('deposit');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (navDeposit) navDeposit.addEventListener('click', () => showLoading(3000, () => show('deposit')));
 const navInvest = $('nav-invest');
-if (navInvest) navInvest.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('invest');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (navInvest) navInvest.addEventListener('click', () => showLoading(3000, () => show('invest')));
 
 // Back Buttons
 const backZelle = $('back-zelle');
-if (backZelle) backZelle.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('dashboard');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (backZelle) backZelle.addEventListener('click', () => showLoading(3000, () => show('dashboard')));
 const backTransfer = $('back-transfer');
-if (backTransfer) backTransfer.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('dashboard');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (backTransfer) backTransfer.addEventListener('click', () => showLoading(3000, () => show('dashboard')));
 const backDeposit = $('back-deposit');
-if (backDeposit) backDeposit.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('dashboard');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (backDeposit) backDeposit.addEventListener('click', () => showLoading(3000, () => show('dashboard')));
 const backBills = $('back-bills');
-if (backBills) backBills.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('dashboard');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (backBills) backBills.addEventListener('click', () => showLoading(3000, () => show('dashboard')));
 const backInvest = $('back-invest');
-if (backInvest) backInvest.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('dashboard');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (backInvest) backInvest.addEventListener('click', () => showLoading(3000, () => show('dashboard')));
 
 // Account Taps
 const checkingCard = $('checking-card');
-if (checkingCard) checkingCard.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('checking-transactions');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (checkingCard) checkingCard.addEventListener('click', () => showLoading(3000, () => show('checking-transactions')));
 const savingsCard = $('savings-card');
-if (savingsCard) savingsCard.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('savings-transactions');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (savingsCard) savingsCard.addEventListener('click', () => showLoading(3000, () => show('savings-transactions')));
 
-// View Buttons
+// VIEW Buttons
 const viewChecking = $('view-checking');
-if (viewChecking) viewChecking.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('checking-transactions');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (viewChecking) viewChecking.addEventListener('click', () => showLoading(3000, () => show('checking-transactions')));
 const viewSavings = $('view-savings');
-if (viewSavings) viewSavings.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('savings-transactions');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (viewSavings) viewSavings.addEventListener('click', () => showLoading(3000, () => show('savings-transactions')));
 
 // Back from Transactions
 const backChecking = $('back-checking');
-if (backChecking) backChecking.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('dashboard');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (backChecking) backChecking.addEventListener('click', () => showLoading(3000, () => show('dashboard')));
 const backSavings = $('back-savings');
-if (backSavings) backSavings.addEventListener('click', () => {
-  const loading = $('loading');
-  if (loading) loading.classList.add('active');
-  setTimeout(() => {
-    show('dashboard');
-    if (loading) loading.classList.remove('active');
-  }, 3000);
-});
+if (backSavings) backSavings.addEventListener('click', () => showLoading(3000, () => show('dashboard')));
