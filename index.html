@@ -8,6 +8,11 @@
 </head>
 <body>
 
+<!-- LOADING SPINNER -->
+<div id="loading" class="loading">
+  <div class="spinner"></div>
+</div>
+
 <!-- LOGIN SCREEN -->
 <div id="login" class="screen active">
   <div class="login-header">
@@ -18,7 +23,7 @@
   <div class="login-box">
     <label class="label">User ID</label>
     <input type="text" id="login-username" class="input-field"/>
-    <div class=".checkbox-group">
+    <div class="checkbox-group">
       <input type="checkbox" id="save-id"/>
       <label for="save-id">Save this User ID</label>
       <span class="help-icon">?</span>
@@ -31,7 +36,7 @@
     <a href="#" class="forgot-link">Forgot your Password?</a>
     <button id="btn-login" class="login-btn">Log In</button>
     <div class="secure-area">
-      <span class="lock-icon">Secure area</span>
+      <span class="lock-icon">🔒 Secure area</span>
       <div class="privacy-links">Privacy | Security | Your Privacy Choices ✓✕</div>
       <div class="footer-text">Bank of America, N.A. Member FDIC. Equal Housing Lender</div>
       <div class="copyright">© 2025 Bank of America Corporation.</div>
@@ -43,10 +48,10 @@
 <!-- DASHBOARD -->
 <div id="dashboard" class="screen app-container">
   <div class="top-menu">
-    <span class="menu-icon" id="menu-tap">Menu</span>
-    <span class="inbox-icon" id="inbox-tap">Inbox 1</span>
-    <span class="products-icon">Products</span>
-    <span class="logout-icon" id="btn-logout">Log Out</span>
+    <span class="menu-icon" id="menu-tap">☰</span>
+    <span class="inbox-icon" id="inbox-tap">✉ Inbox 1</span>
+    <span class="products-icon">🛒 Products</span>
+    <span class="logout-icon" id="btn-logout">→ Log Out</span>
   </div>
   <div class="accounts-dashboard">
     <span>Accounts</span>
@@ -87,14 +92,14 @@
           <div class="name">Adv SafeBalance<br>Banking -6682</div>
         </div>
         <div class="balance">$40,120.00</div>
-        <button class="view-btn">VIEW</button>
+        <button class="view-btn" id="view-checking">VIEW</button>
       </div>
       <div id="savings-card" class="account-item tappable">
         <div class="account-info">
           <div class="name">Advantage Savings<br>-6705</div>
         </div>
         <div class="balance">$50,030.00</div>
-        <button class="view-btn">VIEW</button>
+        <button class="view-btn" id="view-savings">VIEW</button>
       </div>
       <button class="open-new">OPEN NEW ACCOUNT</button>
     </div>
@@ -151,7 +156,7 @@
 <!-- MENU OVERLAY -->
 <div id="menu-screen" class="screen menu-overlay">
   <header class="boa-header">
-    <button class="back-btn" id="back-menu">Close</button>
+    <button class="back-btn" id="back-menu">&larr; Close</button>
     <h1>Menu</h1>
   </header>
   <div class="menu-list">
@@ -167,7 +172,7 @@
 <!-- INBOX PAGE -->
 <div id="inbox" class="screen">
   <header class="boa-header">
-    <button class="back-btn" id="back-inbox">Back</button>
+    <button class="back-btn" id="back-inbox">&larr; Back</button>
     <h1>Inbox</h1>
   </header>
   <div class="page-content">
@@ -181,7 +186,7 @@
 <!-- ZELLE PAGE -->
 <div id="zelle" class="screen">
   <header class="boa-header">
-    <button class="back-btn" id="back-zelle">Back</button>
+    <button class="back-btn" id="back-zelle">&larr; Back</button>
     <h1>Zelle® Send Money</h1>
   </header>
   <div class="page-content">
@@ -195,7 +200,7 @@
 <!-- TRANSFER PAGE -->
 <div id="transfer" class="screen">
   <header class="boa-header">
-    <button class="back-btn" id="back-transfer">Back</button>
+    <button class="back-btn" id="back-transfer">&larr; Back</button>
     <h1>Transfer Money</h1>
   </header>
   <div class="page-content">
@@ -214,7 +219,7 @@
 <!-- DEPOSIT PAGE -->
 <div id="deposit" class="screen">
   <header class="boa-header">
-    <button class="back-btn" id="back-deposit">Back</button>
+    <button class="back-btn" id="back-deposit">&larr; Back</button>
     <h1>Deposit a Check</h1>
   </header>
   <div class="page-content">
@@ -229,7 +234,7 @@
 <!-- BILLS PAGE -->
 <div id="bills" class="screen">
   <header class="boa-header">
-    <button class="back-btn" id="back-bills">Back</button>
+    <button class="back-btn" id="back-bills">&larr; Back</button>
     <h1>Pay Bills</h1>
   </header>
   <div class="page-content">
@@ -246,7 +251,7 @@
 <!-- INVEST PAGE -->
 <div id="invest" class="screen">
   <header class="boa-header">
-    <button class="back-btn" id="back-invest">Back</button>
+    <button class="back-btn" id="back-invest">&larr; Back</button>
     <h1>Investments</h1>
   </header>
   <div class="page-content">
@@ -257,7 +262,7 @@
 <!-- CHECKING TRANSACTIONS -->
 <div id="checking-transactions" class="screen">
   <header class="boa-header">
-    <button class="back-btn" id="back-checking">Back</button>
+    <button class="back-btn" id="back-checking">&larr; Back</button>
     <h1>Advantage Plus Checking Transactions</h1>
   </header>
   <div class="page-content">
@@ -283,7 +288,7 @@
 <!-- SAVINGS TRANSACTIONS -->
 <div id="savings-transactions" class="screen">
   <header class="boa-header">
-    <button class="back-btn" id="back-savings">Back</button>
+    <button class="back-btn" id="back-savings">&larr; Back</button>
     <h1>Advantage Savings Transactions</h1>
   </header>
   <div class="page-content">
