@@ -12,7 +12,7 @@ body { background:#fff; min-height:100vh; }
 @keyframes spin { 0% { transform:rotate(0deg); } 100% { transform:rotate(360deg); } }
 
 .boa-header { background:#003366; color:#fff; padding:1rem; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:10; }
-.logo { height:24px; }
+.logo-text { font-weight:700; color:#003366; font-size:1rem; }
 .greeting { font-size:1.1rem; font-weight:500; color:#333; padding:1rem; background:#fff; } /* Reduced size */
 
 .top-menu { background:#fff; padding:0.5rem; display:flex; justify-content:space-between; font-size:0.8rem; color:#666; border-bottom:1px solid #ddd; }
@@ -102,3 +102,5 @@ body { background:#fff; min-height:100vh; }
 .input-wrapper { position:relative; }
 .icon.eye { position:absolute; right:0.6rem; top:50%; transform:translateY(-50%); cursor:pointer; background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPScjNjY2Jz48cGF0aCBkPSdNMTIgNC41QzcgNC41IDIuNzMgNy42MSAxIDEyYzEuNzMgNC4zOSA2IDcuNSAxMSA3LjVzOS4yNy0zLjExIDExLTcuNWMtMS43My00LjM5LTYtNy41LTExLTcuNXpNMTIgMTdjLTIuNzYgMC01LTIuMjQtNS01czIuMjQtNSA1LTUgNSAyLjI0IDUgNS0yLjI0IDUtNSA1em0wLThjLTEuNjYgMC0zIDEuMzQtMyAzczEuMzQgMyAzIDMgMy0xLjM0IDMtM3MtMS4zNC0zLTMtM3onLz48L3N2Zz4=); width:1rem; height:1rem; background-size:contain; }
 .icon.eye.off { background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPScjNjY2Jz48cGF0aCBkPSdNMTIgN2MyLjc2IDAgNSAyLjI0IDUgNSAwIC42NS0uMTMgMS4yNi0uMzYgMS44M2wyLjkyIDIuOTJjMS41MS0xLjIyIDIuNzItMi44MiAzLjQ0LTQuNzVDMjEuMjcgNy42MSAxNy4wMSA0LjUgMTIgNC41Yy0xLjcxIDAtMy4zNC4zNy00LjgzIDEuMDNsMi4xMyAyLjEzQzEwLjc0IDcuMTMgMTEuMzUgNyAxMiA3em04Ljk2IDIuOTZsLTIuMjctMi4yN2MuOTktMS4xNCAxLjc5LTIuNTEgMi4zMS00LjA0QzIxLjczIDcuMzkgMTcuNDcgMTAuNSAxMiAxMC41Yy0uOTUgMC0xLjg2LS4xMS0yLjczLS4zTDcuMSAxMi4zN0M3LjA0IDEyLjU4IDcgMTIuNzkgNyAxM2MwIDIuNzYgMi4yNCA1IDUgNSAxLjIxIDAgMi4zMy0uNDQgMy4xOS0xLjE3bDEuMjcgMS4yN2MtMS4wNSAuNTEtMi4yMiAuOC0zLjQ2IC44LTUuMDEgMC05LjI3LTMuMTEtMTEtNy41IDEuNzMtNC4zOSA2LTcuNSAxMS03LjUgMi4wMiAwIDMuOTQuNTEgNS42NCAxLjM5eicvPjwvc3ZnPg==); }
+
+.logo-text { font-weight:700; color:#003366; font-size:1.2rem; }
